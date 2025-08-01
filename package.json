@@ -1,12 +1,15 @@
 {
   "name": "logtail",
-  "version": "0.0.0",
-  "description": "Log searcher",
+  "version": "0.0.1",
+  "description": "Log tail and searcher",
   "license": "MIT",
   "author": "mtso <8432061+mtso@users.noreply.github.com>",
   "type": "module",
-  "_type": "commonjs",
-  "main": "index.js",
+  "files": [
+    "logtail-cli.js",
+    "bin/"
+  ],
+  "main": "logtail-cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -14,16 +14,21 @@ const state = {
 };
 
 const dbname = 'logtail' + Date.now();
-// const db = new Database(':memory:');
 const db = new Database('/tmp/' + dbname);
 
 initDb(db);
 
-const filepath = process.argv[2];
+const flags = process.argv.filter((arg) => arg.startsWith('-'));
+const nonFlags = process.argv.filter((arg) => !arg.startsWith('-'));
+const filepath = nonFlags[2];
+
+const fromBeginning = flags.includes('--from-beginning');
+const nLinesOption = flags.find((f) => f.startsWith('--lines='));
 
 const tail = new Tail(filepath, {
-  // fromBeginning: true,
-  nLines: 100,
+  // TODO: if fromBeginning is true, then process asynchronously to avoid blocking rendering
+  fromBeginning,
+  nLines: nLinesOption ? +nLinesOption.replace('--lines=', '') : 100,
 });
 
 const lines = [];
