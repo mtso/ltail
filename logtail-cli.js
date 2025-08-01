@@ -140,6 +140,8 @@ function handleSearchMode(ch, key) {
     query = query.substring(0, query.length - 1);
   } else if (key.name === 'enter') {
   } else if (key.name === 'return') {
+  } else if (key.full === 'C-w') {
+    query = query.substring(0, query.lastIndexOf(' '));
   } else if (ch && !key.ctrl) {
     query += ch;
   }
