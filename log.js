@@ -85,12 +85,14 @@ const randomData = (max) => {
   max = max ?? 5
   const obj = {}
   const numKeys = faker.number.int({ min: 1, max });
-  const types = ['s', 's', 's', 's', 's', 's', 'o'];
+  const types = ['s', 's', 's', 'id', 'id', 'id', 'o'];
   for (let i = 0; i < numKeys; i++) {
     const type = faker.helpers.arrayElement(types);
     const key = faker.hacker.noun();
     if (type === 's') {
       obj[key] = faker.hacker.noun();
+    } else if (type === 'id') {
+      obj[key] = faker.string.uuid();
     } else {
       obj[key] = randomData(5);
     }
