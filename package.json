@@ -1,5 +1,5 @@
 {
-  "name": "slog",
+  "name": "logtail",
   "version": "0.0.0",
   "description": "Log searcher",
   "license": "MIT",
@@ -10,10 +10,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "logtail": "./bin/logtail.js"
+  },
   "dependencies": {
     "better-sqlite3": "^12.2.0",
     "blessed": "^0.1.81",
     "clipboardy": "^4.0.0",
     "tail": "^2.2.6"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "capitalize": "^2.0.4"
   }
 }
